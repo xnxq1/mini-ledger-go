@@ -1,9 +1,8 @@
-package domain
+package merchants
 
 import "github.com/shopspring/decimal"
 
-type Merchant struct {
-	BaseEntity
+type CreateMerchantRequest struct {
 	Name       string          `json:"name"`
 	PercentFee decimal.Decimal `json:"percent_fee"`
 }

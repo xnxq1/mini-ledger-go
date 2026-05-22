@@ -6,6 +6,7 @@ import (
 )
 
 type Transfer struct {
+	BaseEntity
 	FromMerchantId uuid.UUID       `json:"from_merchant_id"`
 	ToMerchantId   uuid.UUID       `json:"to_merchant_id"`
 	Amount         decimal.Decimal `json:"amount"`

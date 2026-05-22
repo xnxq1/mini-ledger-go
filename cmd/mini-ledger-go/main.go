@@ -11,11 +11,13 @@ import (
 	"time"
 
 	"github.com/go-chi/chi/v5"
+	httpServer "github.com/xnxq1/mini-ledger-go/internal/http-server"
 	"github.com/xnxq1/mini-ledger-go/internal/http-server/merchants"
 )
 
 func main() {
 	root := chi.NewRouter()
+	root.Use(httpServer.ErrorMiddleware)
 	initMerchantRouter := merchants.MerchantRouter{}
 	root.Mount("/", initMerchantRouter.Init())
 	server := &http.Server{

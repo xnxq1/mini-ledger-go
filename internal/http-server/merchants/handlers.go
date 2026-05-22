@@ -6,12 +6,16 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
+	httpServer "github.com/xnxq1/mini-ledger-go/internal/http-server"
 )
 
 type MerchantRouter struct {
 }
 
 func (route *MerchantRouter) CreateMerchant(w http.ResponseWriter, r *http.Request) {
+	var request CreateMerchantRequest
+	err := httpServer.DecodeJson(r.Body, &request)
+	httpServer.SetError(r, err)
 }
 
 func (route *MerchantRouter) GetMerchants(w http.ResponseWriter, r *http.Request) {
